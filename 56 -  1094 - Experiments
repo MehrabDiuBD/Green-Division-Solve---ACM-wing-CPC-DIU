@@ -1,0 +1,44 @@
+#include <stdio.h>
+ 
+int main() {
+ 
+    int test_case;
+    int n_animal, total_animal=0; 
+    int total_coelho=0, total_rato=0, total_sapo=0;
+    float percentual_coelho, percentual_rato, percentual_sapo;
+    
+    char animal_type;
+    
+    scanf("%d", &test_case);
+    
+    for(int i=1; i<=test_case; i++) {
+        
+        
+        scanf("%d %c", &n_animal, &animal_type);
+        
+        total_animal+=n_animal;
+        
+        switch (animal_type) {
+            
+            case 'C' : total_coelho+=n_animal; break;
+            case 'R' : total_rato+=n_animal; break;
+            case 'S' : total_sapo+=n_animal; break;
+        }
+    }
+    
+    percentual_coelho= total_coelho/(float)total_animal *100;
+    percentual_rato= total_rato/(float)total_animal *100;
+    percentual_sapo= total_sapo/(float)total_animal *100;
+    
+    printf("Total: %d cobaias\n", total_animal);
+    
+    printf("Total de coelhos: %d\n", total_coelho);
+    printf("Total de ratos: %d\n", total_rato);
+    printf("Total de sapos: %d\n", total_sapo);
+    
+    printf("Percentual de coelhos: %.2f %%\n", percentual_coelho);
+    printf("Percentual de ratos: %.2f %%\n", percentual_rato);
+    printf("Percentual de sapos: %.2f %%\n", percentual_sapo);
+ 
+    return 0;
+}
