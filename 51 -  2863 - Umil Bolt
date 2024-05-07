@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main() {
+
+    int T;
+    while(scanf("%d", &T) != EOF) {
+
+        float fastest_attempt = 11.0;
+
+        for(int i=1; i<=T; i++) {
+
+            float i_attempt;
+            scanf("%f", &i_attempt);
+
+            if(i_attempt<fastest_attempt) {
+
+                 fastest_attempt = i_attempt;
+            }
+        }
+
+        printf("%.2f\n", fastest_attempt);
+    }
+
+
+
+    return 0;
+}
