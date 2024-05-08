@@ -1,0 +1,47 @@
+#include <stdio.h>
+
+int prime(int N) {
+
+    if(N<=1) return 0;
+
+    if(N<=3) return 1;
+
+    if(N%2==0 || N%3==0) return 0;
+
+    for(int i=5; i*i<=N; i+=6) {
+
+         if(N%i==0 || N%(i+2)==0) return 0;
+     }
+
+    return 1;
+}
+
+int superPrime( int N) {
+
+    if(prime(N)==1) {
+
+        while(N>0) {
+
+            int remaindar= N%10;
+
+            if(prime(remaindar)!=1) return 0;
+            N/=10;
+        }
+
+
+        return 1;
+    }
+}
+
+int main () {
+
+    int N;
+    while( scanf("%d", &N)==1){
+
+        if(superPrime(N)==1) printf("Super\n");
+        else if(prime(N)==1) printf("Primo\n");
+        else printf("Nada\n");
+    }
+
+    return 0;
+}
