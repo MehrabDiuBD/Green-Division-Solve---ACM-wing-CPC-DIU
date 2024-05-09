@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+
+    int shirtNum;
+    scanf("%d", &shirtNum);
+
+    for(int i=1; i<=shirtNum; i++) {
+
+        int studentNum, secretNum;
+        scanf("%d %d", &studentNum, &secretNum);
+
+        int minAbs=1000, index_minAbs=1000;
+
+        for(int j=1; j<=studentNum; j++) {
+
+            int secNumByiStudent;
+            scanf("%d", &secNumByiStudent);
+
+            if(minAbs>abs(secretNum-secNumByiStudent)) {
+
+                minAbs= abs(secretNum-secNumByiStudent);
+                index_minAbs= j;
+            }
+        }
+
+        printf("index = %d, minAbs= %d\n", index_minAbs, minAbs);
+    }
+
+    return 0;
+}
