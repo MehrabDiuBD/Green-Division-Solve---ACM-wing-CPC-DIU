@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+int main() {
+
+    long long M, N;
+    while(scanf("%lld %lld", &M, &N)!=EOF) {
+
+        long long mMultiple=1, nMultiple=1;
+
+        if(M==0 && N==0) printf("2\n");
+        
+        else if(N==0) {
+            for(int i=1; i<=M; i++) { mMultiple*=i; }
+            printf("%lld\n" ,mMultiple+1);
+        }
+        
+        else if(M==0) {
+            for(int i=1; i<=N; i++) { nMultiple*=i; }
+            printf("%lld\n" ,nMultiple+1);
+        }
+        
+        else {
+            for(int i=1; i<=M; i++) { mMultiple*=i; }
+            for(int i=1; i<=N; i++) { nMultiple*=i; }
+
+            printf("%lld\n", mMultiple+nMultiple);
+        }
+    }
+
+
+    return 0;
+}
