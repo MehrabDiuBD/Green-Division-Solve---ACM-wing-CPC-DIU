@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+unsigned long long calculate_sum(unsigned long long l_r,unsigned long long u_r){
+
+    unsigned long long sum, n_term;
+
+    n_term = u_r-l_r +1;
+
+    sum =  (n_term*(l_r+u_r)) /2;
+
+    return sum;
+}
+
+int main() {
+
+    unsigned long long lower_range, upper_range;
+    scanf("%llu %llu", &lower_range, &upper_range);
+
+    unsigned long long total_sum = calculate_sum(lower_range, upper_range);
+    printf("%llu\n", total_sum);
+
+    return 0;
+}
