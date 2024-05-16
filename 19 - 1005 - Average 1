@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+double calculate_avr(double grade_1st_st, double grade_2nd_st) {
+
+    double avr = (grade_1st_st*3.5 + grade_2nd_st*7.5)/(3.5+7.5);
+
+    return avr;
+}
+
+int main() {
+
+    double grade_1st, grade_2nd;
+    scanf("%lf %lf", &grade_1st, &grade_2nd);
+
+    double student_average = calculate_avr(grade_1st, grade_2nd);
+    printf("MEDIA = %.5lf\n", student_average);
+
+    return 0;
+}
