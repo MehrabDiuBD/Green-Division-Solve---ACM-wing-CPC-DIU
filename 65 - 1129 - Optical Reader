@@ -1,0 +1,43 @@
+#include <stdio.h>
+
+int main() {
+
+    while(1) {
+
+        int N, op, store;
+
+        scanf("%d", &N);
+        if(N==0) break;
+
+        for(int j=1; j<=N; j++) {
+
+            int count1=0, count2=0;
+
+            for(int i =1; i<=5; i++) {
+
+                scanf("%d", &op);
+
+                if(op<=127 && op>=0) {
+
+                    count1++;
+                    store = i;
+                }
+                //else if(op>127 && op<=255) count2++;
+            }
+
+            if(count1==1) {
+
+                switch (store) {
+
+                    case 1 : printf("A\n"); break;
+                    case 2 : printf("B\n"); break;
+                    case 3 : printf("C\n"); break;
+                    case 4 : printf("D\n"); break;
+                    case 5 : printf("E\n"); break;
+                }
+            }
+            else if(count1==0 || count1>1) printf("*\n");
+        }
+    }
+    return 0;
+}
