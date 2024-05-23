@@ -1,0 +1,22 @@
+#include <stdio.h>
+ 
+int main() {
+ 
+    int nT;
+    scanf("%d", &nT);
+    
+    for(int i=1; i<=nT; i++) {
+        
+        int height, diameter, branch;
+        scanf("%d %d %d", &height, &diameter, &branch);
+        
+        if(height>=200 && height<=300 && diameter>=50 && branch>=150) {
+            
+           printf("Sim\n");
+        }
+        
+        else printf("Nao\n");
+    }
+ 
+    return 0;
+}
