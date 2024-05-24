@@ -1,0 +1,13 @@
+#include <stdio.h>
+ 
+int main() {
+ 
+    int nT, N;
+    scanf("%d", &N);
+    
+    nT = N -2;
+    
+    printf("%d\n", nT);
+ 
+    return 0;
+}
