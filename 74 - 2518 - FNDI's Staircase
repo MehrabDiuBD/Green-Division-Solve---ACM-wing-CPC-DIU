@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <math.h>
+ 
+int main() {
+ 
+    int N;
+    while(scanf("%d", &N) != EOF) {
+        
+        int height, width, length;
+        double hypotenuse, phythagorus, total_area;
+        
+        scanf("%d %d %d", &height, &width, &length);
+        
+        
+        phythagorus = pow(height, 2) + pow(width, 2);
+        
+        hypotenuse =  sqrt(phythagorus);
+        
+        total_area = hypotenuse * length * N /10000; //10,000 for cm 2x to meter 2x
+        
+        printf("%.4lf\n", total_area);
+        
+    }
+ 
+    return 0;
+}
