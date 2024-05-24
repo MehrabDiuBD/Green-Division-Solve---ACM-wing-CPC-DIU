@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <math.h>
+ 
+int main() {
+ 
+    double v, R, r, h, area, pi = 3.14;
+    
+    while( scanf("%lf", &v) != EOF ) { 
+    
+    scanf("%lf", &R);
+    
+    r = R/2.0;
+    
+    h = v/(pi* pow(r, 2));
+    
+    area = v/h;
+    
+    printf("ALTURA = %.2lf\n", h);
+    printf("AREA = %.2lf\n", area);
+    
+    }
+    
+    return 0;
+}
+
+
