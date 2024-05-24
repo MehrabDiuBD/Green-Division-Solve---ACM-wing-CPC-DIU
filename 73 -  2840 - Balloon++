@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main() {
+
+    int redius, gas_L, n_balloon;
+    double gas_per_balloon;
+
+    scanf("%d %d", &redius, &gas_L);
+
+    gas_per_balloon = 4/ 3.0 *3.1415 * redius * redius * redius;
+
+    n_balloon = gas_L / gas_per_balloon;
+
+    printf("%d\n", n_balloon);
+
+    return 0;
+}
