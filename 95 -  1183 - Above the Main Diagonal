@@ -1,0 +1,40 @@
+#include <stdio.h>
+ 
+int main() {
+ 
+    char ch;
+    scanf("%c", &ch);
+    
+    double sum=0, count=0;
+    double M[12][12];
+    
+    int x=0, y=1;
+    
+    for(int i=0; i<12; i++) {
+        
+        for(int j=0; j<12; j++) {
+            
+            scanf("%lf", &M[i][j]);
+        }
+    }
+    
+    for(int i=x; i<12; i++) {
+        
+        for(int j=y; j<12; j++) {
+            
+            sum+=M[i][j];
+            count++;
+        }
+        
+        x++;
+        y++;
+    }
+    
+    switch (ch) {
+        
+        case 'S' : printf("%.1lf\n", sum); break;
+        case 'M' : printf("%.1lf\n", sum/count); break;
+    }
+ 
+    return 0;
+}
