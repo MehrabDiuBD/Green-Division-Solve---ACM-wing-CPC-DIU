@@ -1,0 +1,29 @@
+// problem link : https://judge.beecrowd.com/en/problems/view/1176
+
+#include <stdio.h>
+ 
+int main() {
+ 
+    int n, n1;
+    scanf("%d", &n);
+    for(int i=1; i<=n; i++) {
+        
+        scanf("%d", &n1);
+        
+        unsigned long long t1=0, t2=1;
+        
+        if(n1==0) printf("Fib(%d) = %llu\n", n1, t1);
+        if(n1==1) printf("Fib(%d) = %llu\n", n1, t2);
+        
+        for(int j=2; j<=n1; j++) {
+            
+            unsigned long long temp = t1;
+            t1= t2;
+            t2+=temp;
+        }
+        
+        if(n1>1) printf("Fib(%d) = %llu\n", n1, t2);
+    }
+ 
+    return 0;
+}
