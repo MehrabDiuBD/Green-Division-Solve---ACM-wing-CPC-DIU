@@ -1,0 +1,55 @@
+// problem link: https://judge.beecrowd.com/en/problems/view/1179
+
+#include <stdio.h>
+
+int main() {
+
+    int n15, j;
+    int par[5];
+    int impar[5];
+    int even=0, odd=0;
+
+    for(int i=0; i<15; i++) {
+
+        scanf("%d", &n15);
+
+        if(n15%2==0) par[even++] = n15;
+        else impar[odd++] = n15;
+
+        if(even==5) {
+
+            even=0;
+            for(j=0; j<5; j++) {
+
+                printf("par[%d] = %d\n", j, par[j]);
+            }
+        }
+
+        if(odd==5) {
+
+            odd=0;
+            for(j=0; j<5; j++) {
+
+                printf("impar[%d] = %d\n", j, impar[j]);
+            }
+        }
+    }
+
+    if(odd!=0) {
+
+        for(j=0; j<odd; j++) {
+
+            printf("impar[%d] = %d\n", j, impar[j]);
+        }
+    }
+
+    if(even!=0) {
+
+        for(j=0; j<even; j++) {
+
+            printf("par[%d] = %d\n", j, par[j]);
+        }
+    }
+
+    return 0;
+}
