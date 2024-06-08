@@ -1,0 +1,41 @@
+// Problem link: https://judge.beecrowd.com/en/problems/view/1318
+
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+
+    while(1) {
+
+    int nT, nJ, sT, copied_t=0, i;
+    scanf("%d %d", &nT, &nJ);
+
+    if(nT==0 && nJ==0) break;
+
+    int ticket_box[nT+1];
+    memset(ticket_box, 0, sizeof(ticket_box));
+
+    for(i=0; i<nJ; i++) {
+
+        scanf("%d", &sT);
+
+        ticket_box[sT]++;
+    }
+
+
+    for(i=1; i<=nT; i++) {
+
+        if(ticket_box[i]>1) {
+
+            copied_t+=1;
+        }
+
+        //printf("ticket_box[%d] = %d\n",i, ticket_box[i]);
+    }
+
+    printf("%d\n", copied_t);
+
+    }
+
+    return 0;
+}
