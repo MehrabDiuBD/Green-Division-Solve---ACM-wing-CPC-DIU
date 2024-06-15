@@ -1,0 +1,29 @@
+// problem link : https://judge.beecrowd.com/en/problems/view/1641
+
+#include <stdio.h>
+
+int main() {
+
+   int count=0;
+
+   while(1) {
+
+   count++;
+   int r,l, w;
+
+   scanf("%d",  &r);
+   if(r==0) break;
+
+   scanf("%d %d", &l, &w);
+
+   int x= l*l + w*w;
+   r*=2;
+   r*=r;
+
+   if(x<=r) printf("Pizza %d fits on the table.\n", count);
+   else printf("Pizza %d does not fit on the table.\n", count);
+
+   }
+
+   return 0;
+}
