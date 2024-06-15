@@ -1,0 +1,36 @@
+// problem link : https://judge.beecrowd.com/en/problems/view/1533
+
+#include <stdio.h>
+
+
+int main() {
+
+    while(1) {
+
+        int n, ni;
+        scanf("%d", &n);
+        if(n==0) break;
+
+        int arr[10000+1];
+        int arr1[n];
+
+        memset(arr, 0, sizeof(arr));
+
+        for(int i=0; i<n; i++) {
+
+            scanf("%d", &ni);
+
+            arr[ni]=i+1;
+        }
+        
+        for(int i=0, j=0; i<10000+1; i++) {
+
+           if(arr[i]>0) arr1[j++] = arr[i];
+        }
+
+        printf("%d\n", arr1[n-2]);
+
+    }
+
+    return 0;
+}
