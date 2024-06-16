@@ -1,0 +1,49 @@
+#include <stdio.h>
+
+int main() {
+
+    unsigned long long n, i, count1=0, sum=0, x=0;
+    scanf("%llu", &n);
+
+    unsigned long long arr1[n];
+
+    for(i=0; i<n; i++) {
+
+        scanf("%llu", &arr1[i]);
+    }
+
+    for(i=0; i<n; ) {
+
+        if(arr1[i]%2==1) {
+
+           if(arr1[i]>0) {
+
+                arr1[i]-=1;
+            }
+
+            count1++;
+            i++;
+            if(i>=n) break;
+        }
+
+        else {
+
+            if(x<=0) count1++;
+            x++;
+
+            if(arr1[i]>0) {
+
+                arr1[i]-=1;
+            }
+
+            i--;
+            if(i<0) break;
+        }
+    }
+
+    for(i=0; i<n; i++) { sum+=arr1[i]; }
+
+    printf("%llu %llu\n", count1, sum);
+
+    return 0;
+}
