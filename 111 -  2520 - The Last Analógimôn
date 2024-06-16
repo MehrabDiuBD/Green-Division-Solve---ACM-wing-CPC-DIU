@@ -1,0 +1,36 @@
+// problem link: https://judge.beecrowd.com/en/problems/view/2520
+
+#include<stdio.h>
+#include<stdlib.h>
+
+int main() {
+
+    int n1, n2;
+
+    while(1) {
+
+        if(scanf("%d", &n1)==EOF) break;
+        if(scanf("%d", &n2)==EOF) break;
+
+        int arr[n1][n2];
+        int x1, x2, y1, y2, x, y, z;
+
+        for(int i=0; i<n1; i++) {
+
+            for(int j=0; j<n2; j++) {
+
+                scanf("%d", &arr[i][j]);
+
+                if(arr[i][j]==1) x1=i, y1=j;
+                if(arr[i][j]==2) x2=i, y2=j;
+            }
+        }
+
+        x= abs(x2-x1), y=abs(y2-y1), z= x+y;
+
+        printf("%d\n", z);
+    }
+
+return 0;
+}
+
