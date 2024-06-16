@@ -1,0 +1,51 @@
+//problem link: https://judge.beecrowd.com/en/problems/view/2846
+
+#include<stdio.h>
+#include<string.h>
+
+#define LIMIT 1000000 //limit = 10,00,000
+
+int main()
+{
+    unsigned k, i, count1=0, j=0;
+    scanf("%u", &k);
+
+    unsigned fst=0, snd=1;
+
+    unsigned arr1[LIMIT+1];
+    memset(arr1, 0, sizeof(arr1));
+
+    arr1[0]=1, arr1[1]=1;
+
+    //count and store all the fibonacci number among 10,00,000;
+    for(i=2; ; i++) {
+
+    	int temp = fst;
+        fst = snd;
+        snd+=temp;
+
+        if(snd>LIMIT) break;
+
+        arr1[snd]=1;
+
+    }
+
+    //count total fibnot number among 10,0000
+    for(i=0; i<LIMIT+1; i++) {
+
+        if(arr1[i]<1) count1++;
+    }
+
+
+    //store total count of fibnot number in an another array as index;
+    unsigned arr2[count1];
+
+    for(i=0; i<LIMIT+1; i++) {
+
+    	if(arr1[i] < 1) arr2[j++] = i;
+    }
+
+    printf("%u\n", arr2[k-1]);
+
+    return 0;
+}
