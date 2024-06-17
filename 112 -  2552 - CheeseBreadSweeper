@@ -1,0 +1,49 @@
+// problem link : https://judge.beecrowd.com/en/problems/view/2552
+
+#include<stdio.h>
+
+int main () {
+
+    int ni, nj;
+    while(1) {
+
+        if(scanf("%d", &ni)==EOF) break;
+        if(scanf("%d", &nj)==EOF) break;
+
+        int arr[ni][nj];
+
+        for(int i=0; i<ni; i++) {
+
+            for(int j=0; j<nj; j++) {
+
+                scanf("%d", &arr[i][j]);
+            }
+        }
+
+        for(int i=0; i<ni; i++) {
+
+            for(int j=0; j<nj; j++) {
+
+                if(arr[i][j]==1) printf("9");
+
+                if(arr[i][j]==0) {
+
+                    int count1=0;
+
+                    if(i>=1 && arr[i-1][j]==1) count1++;
+                    if(j>=1 && arr[i][j-1]==1) count1++;
+                    if(i<ni-1 && arr[i+1][j]==1) count1++;
+                    if(j<nj-1 && arr[i][j+1]==1) count1++;
+
+                    printf("%d", count1);
+                }
+            }
+
+            printf("\n");
+        }
+
+
+
+    }
+    return 0;
+}
