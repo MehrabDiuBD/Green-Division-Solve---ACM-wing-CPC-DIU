@@ -1,0 +1,77 @@
+problem link: https://judge.beecrowd.com/en/problems/view/1855
+
+#include<stdio.h>
+int main ()
+{
+
+    int ni, nj;
+    scanf("%d %d", &ni, &nj);
+
+    char arr[nj][ni];
+
+    for(int x=0; x<nj; x++)
+    {
+
+        for(int y=0; y<ni; y++)
+        {
+
+            scanf(" %c", &arr[x][y]);
+        }
+    }
+
+
+    int countX=0, countY= nj*ni, count1=0;
+    int i=0, j=0;
+
+    while(1)
+    {
+
+        countX++;
+        if(countX>countY) { printf("!\n"); break; }
+
+        if(arr[i][j]=='>')
+        {
+            count1=1;
+            j++;
+        }
+        else if(arr[i][j]=='<')
+        {
+            count1=2;
+            j--;
+        }
+        else if(arr[i][j]=='v')
+        {
+            count1=3;
+            i++;
+        }
+        else if(arr[i][j]=='^')
+        {
+            count1=4;
+            i--;
+        }
+
+        else if(arr[i][j]=='.')
+        {
+
+            if(count1==1) j++;
+            else if(count1==2) j--;
+            else if(count1==3) i++;
+            else if(count1==4) i--;
+        }
+
+        else if(arr[i][j]=='*')
+        {
+            printf("*\n");
+            break;
+        }
+
+        // Check if out of bounds
+        if (j >= ni || j < 0 || i >= nj || i < 0)
+        {
+            printf("!\n");
+            break;
+        }
+    }
+
+    return 0;
+}
