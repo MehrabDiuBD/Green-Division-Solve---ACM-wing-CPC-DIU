@@ -1,0 +1,30 @@
+#include<stdio.h>
+#include<string.h>
+
+int main () {
+
+    while(1){
+
+        int nv, nr, x;
+        if(scanf("%d", &nv)==EOF) break;
+        if(scanf("%d", &nr)==EOF) break;
+
+        int arr[nv+1];
+        memset(arr, 0, sizeof(arr));
+
+        for(int i=1; i<nr+1; i++) {
+
+            scanf("%d", &x);
+            arr[x]++;
+        }
+
+        for(int i=1; i<nv+1; i++) {
+
+            if(arr[i]==0) printf("%d ", i);
+        }
+        if(nv==nr) {printf("*\n");}
+        else printf("\n");
+    }
+
+    return 0;
+}
