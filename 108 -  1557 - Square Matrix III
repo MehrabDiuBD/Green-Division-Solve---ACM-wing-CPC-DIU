@@ -1,0 +1,89 @@
+// problem link : https://judge.beecrowd.com/en/problems/view/1557
+
+#include<stdio.h>
+
+int main() {
+
+    while(1){
+
+    int n, i, j;
+    scanf("%d", &n);
+    if(n==0) break;
+
+    int x=1;
+
+    for(i=1; i<=n; i++) {
+
+        int y=x;
+
+        for(j=1; j<=n; j++) {
+
+            if(n==1 || n==2) {
+
+                if(j==1) printf("%1d", y);
+                else printf("%2d", y);
+            }
+
+            else if(n==3 || n==4) {
+
+                if(j==1) printf("%2d", y);
+                else printf("%3d", y);
+            }
+
+            else if(n==5) {
+
+                if(j==1) printf("%3d", y);
+                else printf("%4d", y);
+            }
+
+            else if(n==6 || n==7) {
+
+                if(j==1) printf("%4d", y);
+                else printf("%5d", y);
+            }
+
+            else if(n==8 || n==9) {
+
+                if(j==1) printf("%5d", y);
+                else printf("%6d", y);
+            }
+
+            else if(n==10) {
+
+                if(j==1) printf("%6d", y);
+                else printf("%7d", y);
+            }
+
+            else if(n==11 || n==12) {
+
+                if(j==1) printf("%7d", y);
+                else printf("%8d", y);
+            }
+
+            else if(n==13 || n==14) {
+
+                if(j==1) printf("%8d", y);
+                else printf("%9d", y);
+            }
+
+            else if(n==15) {
+
+                if(j==1) printf("%9d", y);
+                else printf("%10d", y);
+            }
+
+            y*=2;
+        }
+
+        x*=2;
+        printf("\n");
+    }
+    
+    printf("\n");
+    }
+
+    return 0;
+}
+
+
+
