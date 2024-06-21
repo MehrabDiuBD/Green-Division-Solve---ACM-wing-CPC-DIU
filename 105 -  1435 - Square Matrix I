@@ -1,0 +1,131 @@
+//Problem Link : https://judge.beecrowd.com/en/problems/view/1435
+
+#include <stdio.h>
+
+int main() {
+
+    while(1) {
+
+        int n;
+        scanf("%d", &n);
+        if(n==0) break;
+
+        int i, j;
+
+
+        //FOR EVEN NUMBER
+        if(n%2==0) {
+
+            //1. upper
+            for(i=1; i<=n/2; i++) {
+
+                //1.1 upper-left
+                for(j=1; j<=n/2; j++) {
+
+                    if(j==1) { //for %3d
+
+                        if(j<=i) printf("%3d", j); //same logic as else
+                        else printf("%3d", i);
+                    }
+                    else { //for %4d
+
+                        if(j<=i) printf("%4d", j); //assuming n=12, as j=1, i=1, starting with j(as j<=i), so j(1), i(1,1,1,1,1) (same row)
+                        else printf("%4d", i);     //then j=1, i=2, starting with j(as j<=i), so j(1,2), i(2,2,2,2) (same row)
+                    }                              //then j=1, i=3, starting with j(as j<=i), so j(1,2,3), i(3,3,3) (same row)
+                }                                  //go on
+
+                //1.2 upper-right
+                for(j=n/2; j>0; j--) {
+
+                    if(j<=i) printf("%4d", j); //assuming n=12, as j=6, i=1, starting with i(as j not <=i), so (1,1,1,1,1)i, j(1) (same row)
+                    else printf("%4d", i);     //then j=6, i=2, starting with i(as j not <=i), so (2,2,2,2)i, j(2, 1) (same row)
+                }                              //then j=6, i=3, starting with i(as j not <=i), so (3,3,3)i, j(3, 2, 1) (same row)
+                printf("\n");                  //go on
+            }
+            //2. Lower
+            for(i=n/2; i>0; i--) {
+
+                //2.1 Lower-left
+                for(j=1; j<=n/2; j++) {
+
+                    if(j==1) { //for %3d
+
+                        if(j<=i) printf("%3d", j); //same logic as else
+                        else printf("%3d", i);
+                    }
+                    else { //for %4d
+
+                        if(j<=i) printf("%4d", j); //assuming n=12,  as j=1, i=6, starting with j(as j<=i), so j(1,2,3,4,5,6) (same row)
+                        else printf("%4d", i);     //then j=1, i=5, starting with j(as j<=i), so (1,2,3,4,5)j, i(5) (same row)
+                    }                              //then j=1, i=4, starting with j(as j<=i), so (1,2,3,4)j, i(4,4) (same row)
+                }                                  //go on
+                //2.2 Lower-right
+                for(j=n/2; j>0; j--) {
+
+                    if(j<=i) printf("%4d", j);  //assuming n=12,  as j=6, i=6, starting with j(as j<=i), so j(6,5,4,3,2,1) (same row)
+                    else printf("%4d", i);      //then j=6, i=5, so starting with i(as j not <=i), so (5)i , j(5,4,3,2,1)(same row)
+                }                               //then j=6, i=4, so starting with i(as j not <=i), so (4,4)i , j(4,3,2,1)(same row)
+                printf("\n");                   //go on
+            }
+        }
+
+        //FOR ODD NUMBER
+        if(n%2==1) {
+
+            //1. upper
+            for(i=1; i<=n/2+1; i++) { //plus 1 add for the extra odd ROW with first half(row) of even part
+
+                //1.1 upper-left
+                for(j=1; j<=n/2+1; j++) { //plus 1 add for the extra odd Collumn with first half(collum) of even part
+
+                    if(j==1) { //for %3d
+
+                        if(j<=i) printf("%3d", j); //same logic as else
+                        else printf("%3d", i);
+                    }
+                    else { //for %4d
+
+                        if(j<=i) printf("%4d", j); //assuming n=12, as j=1, i=1, starting with j(as j<=i), so j(1), i(1,1,1,1,1) (same row)
+                        else printf("%4d", i);     //then j=1, i=2, starting with j(as j<=i), so j(1,2), i(2,2,2,2) (same row)
+                    }                              //then j=1, i=3, starting with j(as j<=i), so j(1,2,3), i(3,3,3) (same row)
+                }                                  //go on
+
+                //1.2 upper-right
+                for(j=n/2; j>0; j--) { //only n/2 because extra odd collum has been done by upper-left(colloum)
+
+                    if(j<=i) printf("%4d", j); //assuming n=12, as j=6, i=1, starting with i(as j not <=i), so (1,1,1,1,1)i, j(1) (same row)
+                    else printf("%4d", i);     //then j=6, i=2, starting with i(as j not <=i), so (2,2,2,2)i, j(2, 1) (same row)
+                }                              //then j=6, i=3, starting with i(as j not <=i), so (3,3,3)i, j(3, 2, 1) (same row)
+                printf("\n");                  //go on
+            }
+            //2. Lower
+            for(i=n/2; i>0; i--) { //only n/2 because extra odd ROW has been done by upper(row) side
+
+                //2.1 Lower-left
+                for(j=1; j<=n/2+1; j++) { //plus 1 add for the extra odd Collumn with first half(collum) of even part
+
+                    if(j==1) { //for %3d
+
+                        if(j<=i) printf("%3d", j); //same logic as else
+                        else printf("%3d", i);
+                    }
+                    else { //for %4d
+
+                        if(j<=i) printf("%4d", j); //assuming n=12,  as j=1, i=6, starting with j(as j<=i), so j(1,2,3,4,5,6) (same row)
+                        else printf("%4d", i);     //then j=1, i=5, starting with j(as j<=i), so (1,2,3,4,5)j, i(5) (same row)
+                    }                              //then j=1, i=4, starting with j(as j<=i), so (1,2,3,4)j, i(4,4) (same row)
+                }                                  //go on
+                //2.2 Lower-right
+                for(j=n/2; j>0; j--) { //only n/2 because extra odd ROW has been done by lower-left(collumn) side
+
+                    if(j<=i) printf("%4d", j);  //assuming n=12,  as j=6, i=6, starting with j(as j<=i), so j(6,5,4,3,2,1) (same row)
+                    else printf("%4d", i);      //then j=6, i=5, so starting with i(as j not <=i), so (5)i , j(5,4,3,2,1)(same row)
+                }                               //then j=6, i=4, so starting with i(as j not <=i), so (4,4)i , j(4,3,2,1)(same row)
+                printf("\n");                   //go on
+            }
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
