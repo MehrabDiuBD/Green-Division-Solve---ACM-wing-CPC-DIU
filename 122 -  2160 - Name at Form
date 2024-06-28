@@ -1,0 +1,17 @@
+//Problem Link : https://judge.beecrowd.com/en/problems/view/2160
+
+#include <stdio.h>
+#include <string.h>
+ 
+int main() {
+ 
+    char str[501];
+    gets(str);
+    
+    int length = strlen(str);
+    
+    if(length<=80) printf("YES\n");
+    else printf("NO\n");
+ 
+    return 0;
+}
