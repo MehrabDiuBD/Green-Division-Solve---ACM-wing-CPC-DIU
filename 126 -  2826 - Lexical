@@ -1,0 +1,54 @@
+// Problem link : https://judge.beecrowd.com/en/problems/view/2826
+
+#include <stdio.h>
+ 
+int main() {
+ 
+    char str1[21], str2[21];
+    
+    scanf("%s %s", str1, str2);
+    
+    int length1 = strlen(str1);
+    int length2 = strlen(str2);
+    
+    int smallest = (length1>=length2) ? length2 : length1;
+    
+    int count1=0;
+    
+    for(int i=0; i<smallest; i++) {
+        
+        if(str1[i]<str2[i]) {
+            
+            puts(str1); 
+            puts(str2);
+            count1=1;
+            break;
+        }
+        else if(str1[i]>str2[i]) {
+            
+            puts(str2); 
+            puts(str1);
+            count1=1;
+            break;
+        }
+        
+        else continue;
+    }
+    
+    if(count1==0) {
+        
+        if(length1>length2) {
+            
+            puts(str2);
+            puts(str1);
+        }
+        
+        else if(length1<=length2) {
+            
+            puts(str1);
+            puts(str2);
+        }
+    }
+ 
+    return 0;
+}
